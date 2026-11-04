@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "package": "python ../package.py",
     "start": "node server.js"
   },
   "engines": {
