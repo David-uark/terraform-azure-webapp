@@ -4,9 +4,6 @@
   "private": true,
   "scripts": {
     "package": "python ../package.py",
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=20"
+    "start": "python -m streamlit run app.py"
   }
 }

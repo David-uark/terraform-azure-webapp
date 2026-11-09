@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "Housing Dataset.xlsx")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "Housing Dataset.xlsx")
 
 
 def _clean_numeric(series: pd.Series) -> pd.Series:
