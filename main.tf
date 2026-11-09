@@ -84,16 +84,18 @@ resource "azurerm_linux_web_app" "app" {
 
   site_config {
     # The free tier (F1) does not support Always On.
-    always_on = var.app_service_sku != "F1"
+    always_on        = var.app_service_sku != "F1"
+    app_command_line = "python -m streamlit run app.py --server.address 0.0.0.0 --server.port 8000 --server.headless true"
 
     application_stack {
-      node_version = "22-lts"
+      python_version = "3.11"
     }
   }
 
   app_settings = {
     APPLICATIONINSIGHTS_CONNECTION_STRING = azurerm_application_insights.appi.connection_string
     ENVIRONMENT                           = var.environment
+    SCM_DO_BUILD_DURING_DEPLOYMENT        = "true"
   }
 
   # Only added when the matching database is enabled.
